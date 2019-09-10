@@ -2,9 +2,9 @@ import java.util.Arrays;
 
 public class Lesson9 {
     // шифры для значений, где первая цифра - кратность которая нам нужна (800 - кратность нужна и пяти, и трем)
-    int hello = 500;
-    int world = 300;
-    int helloWorld = 800;
+    private final int HELLO = 500;
+    private final int WORLD = 300;
+    private final int HELLOWORLD = 800;
 
     // создаем массив типа int
     public int[] arrays() {
@@ -20,13 +20,13 @@ public class Lesson9 {
     public int[] a(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % 3 == 0 && arr[i] % 5 == 0) {
-                arr[i] = helloWorld;
+                arr[i] = HELLOWORLD;
 
             } else if (arr[i] % 5 == 0) {
-                arr[i] = hello;
+                arr[i] = HELLO;
 
             } else if (arr[i] % 3 == 0) {
-                arr[i] = world;
+                arr[i] = WORLD;
             }
         }
 
@@ -36,8 +36,8 @@ public class Lesson9 {
 
 
     public String[] convert(int[] arr) {  // конвертирует массив int в String
-        String a = Arrays.toString(arr);
-        String[] ar = a.substring(1, a.length() - 1).split(", ");
+        String convert = Arrays.toString(arr);
+        String[] ar = convert.substring(1, convert.length() - 1).split(", ");
         return ar;
 
     }
@@ -56,7 +56,11 @@ public class Lesson9 {
             }
         }
 
-        System.out.println("Меняем шифр на нужные значения: " + Arrays.toString(ar));
+        String convert = Arrays.toString(ar);
+        String  replace = convert.replaceAll("[^\\w]"," ");
+
+
+        System.out.println("Меняем шифр на нужные значения: " + replace);
 
     }
 
